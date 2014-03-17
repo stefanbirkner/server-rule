@@ -5,12 +5,10 @@ import org.eclipse.jetty.webapp.WebAppContext;
 import org.junit.rules.ExternalResource;
 
 /**
- * The {@code HttpServer} rule starts and stops a HttpServer server at port 8080. The
+ * The {@code HttpServer} rule starts and stops an HTTP server at port 8080. The
  * webapp's directory is {@code src/test/webapp}.
  * <p/>
- * <p/>
  * The test below checks the page source of a page provided by HttpServer.
- * <p/>
  * <pre>
  * public class HttpServerTest {
  * 	&#064;Rule
@@ -25,13 +23,34 @@ import org.junit.rules.ExternalResource;
  *    }
  * }
  * </pre>
+ * <p/>
+ * <p/>
+ * You can create an HTTP server at a different port, too.
+ * <pre>
+ * 	&#064;Rule
+ * 	public final HttpServer server = new HttpServer().withPort(1234);
+ * </pre>
  */
 public class HttpServer extends ExternalResource {
+    private static final int DEFAULT_PORT = 8080;
+    private final int port;
     private Server server;
+
+    public HttpServer() {
+        this(DEFAULT_PORT);
+    }
+
+    public HttpServer(int port) {
+        this.port = port;
+    }
+
+    public HttpServer withPort(int port) {
+        return new HttpServer(port);
+    }
 
     @Override
     protected void before() throws Throwable {
-        server = new Server(8080);
+        server = new Server(port);
         WebAppContext webapp = new WebAppContext();
         webapp.setContextPath("/");
         webapp.setResourceBase("src/test/webapp");
