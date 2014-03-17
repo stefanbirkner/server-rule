@@ -9,9 +9,9 @@ import org.apache.commons.io.IOUtils;
 import org.junit.Rule;
 import org.junit.Test;
 
-public class JettyTest {
+public class HttpServerTest {
 	@Rule
-	public final Jetty jetty = new Jetty();
+	public final HttpServer server = new HttpServer();
 
 	@Test
 	public void povidesIndexJsp() throws Exception {

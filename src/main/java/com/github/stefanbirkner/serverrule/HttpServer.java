@@ -5,16 +5,16 @@ import org.eclipse.jetty.webapp.WebAppContext;
 import org.junit.rules.ExternalResource;
 
 /**
- * The {@code Jetty} rule starts and stops a Jetty server at port 8080. The
+ * The {@code HttpServer} rule starts and stops a HttpServer server at port 8080. The
  * webapp's directory is {@code src/test/webapp}.
  * 
  * <p>
- * The test below checks the page source of a page provided by Jetty.
+ * The test below checks the page source of a page provided by HttpServer.
  * 
  * <pre>
- * public class JettyTest {
+ * public class HttpServerTest {
  * 	&#064;Rule
- * 	public final Jetty jetty = new Jetty();
+ * 	public final HttpServer server = new HttpServer();
  * 
  * 	&#064;Test
  * 	public void povidesIndexJsp() throws Exception {
@@ -26,7 +26,7 @@ import org.junit.rules.ExternalResource;
  * }
  * </pre>
  */
-public class Jetty extends ExternalResource {
+public class HttpServer extends ExternalResource {
 	private Server server;
 
 	@Override
