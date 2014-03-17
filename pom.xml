@@ -9,13 +9,13 @@
 	</parent>
 
 	<groupId>com.github.stefanbirkner</groupId>
-	<artifactId>serverrule</artifactId>
+	<artifactId>server-rule</artifactId>
 	<version>0.2.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>Server Rule</name>
 	<description>A JUnit rule that starts and stops a Jetty web server.</description>
-	<url>http://stefanbirkner.github.com/serverrule/</url>
+	<url>http://stefanbirkner.github.com/server-rule/</url>
 	<inceptionYear>2012</inceptionYear>
 	<licenses>
 		<license>
@@ -40,9 +40,9 @@
 	</developers>
 
 	<scm>
-		<connection>scm:git:git://github.com/stefanbirkner/serverrule.git</connection>
-		<developerConnection>scm:git:git@github.com:stefanbirkner/serverrule.git</developerConnection>
-		<url>https://github.com/stefanbirkner/serverrule/</url>
+		<connection>scm:git:git://github.com/stefanbirkner/server-rule.git</connection>
+		<developerConnection>scm:git:git@github.com:stefanbirkner/server-rule.git</developerConnection>
+		<url>https://github.com/stefanbirkner/server-rule/</url>
 	</scm>
 
 	<properties>
