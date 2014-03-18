@@ -1,0 +1,43 @@
+---
+layout: index
+title: Server Rule
+description: A JUnit rule that starts and stops a web server. 
+---
+<h2>Example</h2>
+
+<p>We write a test that checks the status code for a single URL. The rule
+delivers all files from the directory <code>src/test/webapp</code>. Hence
+we add a single file <code>our_file.html</code>to this directory.</p>
+<pre>
+src
+└──test
+   └──webapp
+      └──our_file.html
+</pre>
+
+<p>Now we write a test that opens a connection to the URL
+<code>http://localhost:8080/our_file.html</code> and checks the status code.
+</p>
+
+{% highlight java %}public class OurTest {
+  @Rule
+  public final HttpServer server = new HttpServer();
+
+  @Test
+  public void checksStatusCodeOkForOurFile() {
+    URL url = new URL("http://localhost:8080/our_file.html");
+    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+    connection.connect();
+    assertEquals(200, connection.getResponseCode());
+  }
+}{% endhighlight %}
+
+<h2>Options</h2>
+
+<p><code>HttpServer</code> uses port 8080 by default, but you can specify a
+different port.</p>
+
+{% highlight java %}@Rule
+public final HttpServer server = new HttpServer().withPort(1234);{% endhighlight %}
+
+<p>That's all for now :-)</p>
