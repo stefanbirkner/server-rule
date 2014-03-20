@@ -7,7 +7,7 @@ import org.junit.rules.ExternalResource;
 /**
  * The {@code HttpServer} rule starts and stops an HTTP server at port 8080. The
  * webapp's directory is {@code src/test/webapp}.
- * <p/>
+ * <p>
  * The test below checks the page source of a page provided by HttpServer.
  * <pre>
  * public class HttpServerTest {
@@ -23,8 +23,7 @@ import org.junit.rules.ExternalResource;
  *    }
  * }
  * </pre>
- * <p/>
- * <p/>
+ * <p>
  * You can create an HTTP server at a different port, too.
  * <pre>
  * 	&#064;Rule
